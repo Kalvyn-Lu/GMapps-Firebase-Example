@@ -3,6 +3,7 @@
 ## Installation ##
 
 1. run `npm install` to install node dependencies
+2. replace google maps and firebase API keys in code.
 
 ## Usage ##
 
