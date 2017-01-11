@@ -4,6 +4,19 @@
     <title>Distance Finder</title>
   </head>
   <body>
+    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCPnd7VJOz6b2PtdA8poy7gBYn-wyr2kb0",
+        authDomain: "test-task-1484011185163.firebaseapp.com",
+        databaseURL: "https://test-task-1484011185163.firebaseio.com",
+        storageBucket: "test-task-1484011185163.appspot.com",
+        messagingSenderId: "93128362368"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+    </script>
     <script>function initMap() {}</script>
     <div id="app">
       <script type="text/javascript" src="./src/client/public/bundle.js">

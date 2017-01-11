@@ -6,8 +6,6 @@ window.onload = () => {
   ReactDOM.render(<DistanceFinder />, document.getElementById('app'));
 }
 
-
-
 class DistanceFinder extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +42,10 @@ class DistanceFinder extends React.Component {
       _this.findLatLong(_this.state.destination).then(function(destination){
         let distanceInMiles = _this.calculateDistance(start, destination) * 0.621371;
         if (distanceInMiles <= 20) {
-          pushToFirebase();
+          _this.pushToFirebase({
+            pickUp: start,
+            dropOff: destination
+          });
         } else {
           console.log("Distance is too far away");
         }
@@ -77,5 +78,9 @@ class DistanceFinder extends React.Component {
     let p1 = new google.maps.LatLng(start[0], start[1]);
     let p2 = new google.maps.LatLng(destination[0], destination[1]);
     return  (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+  }
+
+  pushToFirebase(data) {
+    let newLocationKey = database.ref().child('locations').push(data);
   }
 }
