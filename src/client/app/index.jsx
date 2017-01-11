@@ -24,11 +24,11 @@ class DistanceFinder extends React.Component {
     return (
       <form onSubmit={(event) => {this.handleSubmit(event)}}>
         <label>
-          Start:
+          Pick Up:
           <input type="text" onChange={(event)=>{this.setState({start:event.target.value})}} />
         </label>
         <label>
-          Destination:
+          Drop Off:
           <input type="text" onChange={(event)=>{this.setState({destination:event.target.value})}} />
         </label>
         <input type="submit" value="Submit" />
